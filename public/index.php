@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-require_once 'config.php';
-require_once 'functions/url.php';
-require_once 'functions/menssage.php';
-require_once 'functions/auth.php';
-require_once 'functions/caracther.php';
+require_once '../config.php';
+require_once '../functions/url.php';
+require_once '../functions/menssage.php';
+require_once '../functions/auth.php';
+require_once '../functions/caracther.php';
 
 
 
