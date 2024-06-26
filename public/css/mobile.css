@@ -1,0 +1,193 @@
+@media screen and (max-width: 992px) {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  h6 {
+    font-size: 16px;
+  }
+  .texto {
+    font-size: 14px;
+  }
+  .slogan{
+    font-size: 16px;
+  }
+  .botaoBranco {
+    padding: 2px 15px 2px 15px;
+    border-radius: 20px 0 20px 0;
+    font-size: 16px;
+  }
+  /* nav */
+  .navBar {
+    height: 76px;
+    padding: 10px 36px 10px 36px;
+  }
+  .navMenu {
+    position: absolute;
+    top: 76px;
+    padding-left: 36px;
+    padding-right: 36px;
+    width: 100%;
+    left: 0;
+    background-color: var(--branco);
+    z-index: -1;
+    display: none;
+  }
+  .navMenu.ativado {
+    display: block;
+    z-index: 30;
+  }
+  .navLogo img {
+    height: 60px;
+  }
+  .navMenu li {
+    padding: 15px;
+    border-bottom: 2px solid var(--azulEscuro);
+  }
+  .navMenu li:last-child {
+    border: none;
+  }
+  .navText {
+    font-size: 20px;
+  }
+  .navMenu li::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0px;
+    background-color: var(--verdeEscuro);
+    transition: width 0.3s;
+    clip-path: polygon(0 40%, 90% 40%, 100% 50%, 0 50%);
+  }
+  .navMenu li:hover::before {
+    width: 50px;
+  }
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--azulEscuro);
+    margin: 5px auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .menu-toggle.ativado .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.ativado .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.ativado .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  /* nav */
+
+  /* carrossel */
+
+  .carousel-caption {
+    position: relative;
+    width: 100%;
+    background-color: var(--verdeEscuro);
+  }
+  .linhaCarrossel {
+    height: 1px;
+    width: 40px;
+    background-color: var(--branco);
+  }
+  .indicadoresCarrossel {
+    padding-left: 7%;
+    padding-bottom: 2%;
+    margin-top: 10px;
+  }
+  .textoCarrossel h1,
+  .textoCarrossel .linhaCarrossel {
+    margin-bottom: 10px;
+  }
+  .textoCarrossel .texto {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .textoCarrossel a .botaoBranco{
+    margin-bottom: 20px;
+  }
+  .linhaTitulo{
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .quemSomos-home .texto{
+    margin-top: 25px;
+    margin-bottom: 35px;
+  }
+  .imagem-container{
+    width: 100%;
+  }
+  .imagem-ajustada{
+    width: 100%;
+    height: auto;
+  }
+  .dadosEmpresa{
+    margin-bottom: 25px;
+  }
+  .quemSomos-home{
+    margin-bottom: 35px;
+  }
+  .footer-line{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .socialMedia-footer{
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+  .img-texto-left, .img-texto-right{
+    margin: 20px 0px 20px 0px;
+  }
+  .missao h5{
+    margin-bottom: 30px;
+  }
+  .missao{
+    margin-bottom: 30px;
+  }
+  .noQueAcreditamos{
+    margin-bottom: 50px;
+  }
+  .bannerQuemSomos {
+    height: 215px;
+    margin-bottom: 35px ;
+  }
+}
+@media screen and (max-width: 1300px){
+  .textoCarrossel .texto {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .textoCarrossel h1{
+    font-size: 48px;
+  }
+}

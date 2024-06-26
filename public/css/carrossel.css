@@ -1,0 +1,62 @@
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%; /* Ocupa metade da largura da página */
+  background-color: rgba(0, 100, 0, 0.5); /* Verde com opacidade */
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.banner-overlay .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.banner-text {
+  color: white;
+  padding: 20px;
+}
+
+.banner-text h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.banner-text p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.banner-text .btn-primary {
+  background-color: #ffffff;
+  color: #006400;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.banner-text .btn-primary:hover {
+  background-color: #004d00;
+  color: #ffffff;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #006400;
+  padding: 10px;
+  border-radius: 50%;
+}

@@ -36,17 +36,15 @@ switch ($page) {
         break;
 }
 
-$page_template = 'templates/'.$layout_folder.'/page_' . $page . '.php';
-
-require_once 'templates/'.$layout_folder.'/head.php';
+$page_template = '../templates/'.$layout_folder.'/' . $page . '.php';
 
 if (file_exists($page_template)) {
     require_once $page_template;
 } else {
-    require_once 'templates/'.$layout_folder.'/page_not_found.php';
+    echo $page_template;
+    require_once '../templates/'.$layout_folder.'/page_not_found.php';
 }
 
-require_once 'templates/'.$layout_folder.'/foot.php';
 
 
 ?>

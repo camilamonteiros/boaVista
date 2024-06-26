@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "BarlowBold";
+  src: url("../fonts/Barlow-Bold.ttf");
+}
+@font-face {
+  font-family: "BarlowMedium";
+  src: url("../fonts/Barlow-Medium.ttf");
+}
+@font-face {
+  font-family: "BarlowRegular";
+  src: url("../fonts/Barlow-Regular.ttf");
+}
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf");
+}
+
+:root{
+  --titulos: "PlayfairDisplay";
+  --textoRegular: "BarlowRegular";
+  --textoMedium: "BarlowMedium";
+  --textoBold: "BarlowBold";
+
+  --branco: #fff;
+  --preto: #1a1a1a;
+  --vermelho: #CB191D;
+
+  --azulEscuro: #042940;
+  --azulMedio: #0E6A9E;
+  --azulClaro: #0C85CF;
+
+  --verdeEscuro: #467326;
+  --verdeMedio: #7FAC6A;
+  --verdeClaro: #7BCA43;
+}
