@@ -15,15 +15,15 @@ if (!is_authenticated()) {
           <label class="d-block" for="titulo">Título:</label>
           <input type="text" id="titulo" placeholder="Título da Notícia" name="titulo" required>
         </div>
-        <div class="form-group formItens formImg w-100">
-          <label for="img_capa">Imagem de Capa</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="img_capa" name="img_capa" required readonly placeholder="Clique no ícone e escolha a imagem">
-            <div class="input-group-append">
-              <button type="button" class="btnAddImage" data-toggle="modal" data-target="#fileManagerModal"><i class="bi bi-image"></i></button>
+        <div class="form-group">
+                <label for="img_capa">Imagem de Capa</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="img_capa" name="img_capa" required readonly>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileManagerModal">Escolher Imagem</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
         <div class="formItens w-100">
           <label class="d-block" for="data_noticia">Data:</label>
           <input type="date" id="data_noticia" placeholder="Data da Notícia" name="data_noticia" required>
@@ -38,22 +38,28 @@ if (!is_authenticated()) {
       </form>
     </div>
     <div class="modal fade" id="fileManagerModal" tabindex="-1" role="dialog" aria-labelledby="fileManagerModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="fileManagerModalLabel">Selecione uma Imagem</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <iframe id="fileManagerIframe" src="plugins/tinyfilemanager/tinyfilemanager.php" width="100%" height="400px" frameborder="0"></iframe>
-          </div>
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fileManagerModalLabel">Selecione uma Imagem</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="fileManagerIframe" src="plugins/tinyfilemanager/tinyfilemanager.php" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
   </main>
-  <?php
+<?php
   require_once "../templates/backoffice/footer.php";
 }
 ?>
+<!--
+<div class="formItens w-100">
+          <label class="d-block" for="img_capa">Imagem de Capa:</label>
+          <input type="file" id="img_capa" placeholder="Caminho da Imagem de Capa" name="img_capa" required>
+        </div>
+        <input type="hidden" id="img_capa" name="img_capa">

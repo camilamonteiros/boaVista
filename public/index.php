@@ -3,9 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Verifica se a rota é para o FileGator antes de iniciar a sessão
-if (isset($_GET['route']) && $_GET['route'] == 'filegator') {
-    require_once 'dist/index.php';
+// // Verifica se a rota é para o FileGator antes de iniciar a sessão
+if (isset($_GET['route']) && $_GET['route'] == 'tfm') {
+    header('Location: plugins/tinyfilemanager/tinyfilemanager.php?p=' . $_GET['p']);
     exit();
 }
 

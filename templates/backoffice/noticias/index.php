@@ -25,7 +25,7 @@ if (!is_authenticated()) {
           <tr>
             <td data-label="Título" class="tableText" scope="row"><?php echo ($noticia['titulo']) ?></td>
             <td data-label="Data" class="tableText" scope="row"><?php echo ($noticia['data_noticia']) ?></td>
-            <td data-label="Nome" class="tableText" scope="row"><?php echo ($noticia['img_capa']) ?></td>
+            <td data-label="Nome" class="tableText" scope="row"><img src="<?php echo ($noticia['img_capa']) ?>" alt=""></td>
             <td data-label="Ações" class="tableText"><a href="<?php echo url_generate(['route' => 'noticias/atualizarNoticia', 'id' => $noticia['id_noticia']]); ?>">Editar</a> | <a href="<?php echo url_generate(['route' => 'controllers/noticia_apagar', 'id' => $noticia['id_noticia']]); ?>">Apagar</a></td>
           </tr>
         <?php } ?>
