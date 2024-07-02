@@ -29,15 +29,14 @@
               <div class="bar"></div>
             </div>
           </div>
-          <ul id="navMenu"
-            class="navMenu col-12 col-lg-9 d-lg-flex justify-content-lg-between text-lg-center align-items-lg-center">
-            <li class="ativo"><a href="home.html" class="ativo navText">Home</a></li>
-            <li><a href="quemSomos.html" class="navText">Quem Somos</a></li>
-            <li><a href="projetos.html" class="navText">Projetos</a></li>
-            <li>
-              <a href="noticiasEventos.html" class="navText">Notícias e Eventos</a>
+          <ul id="navMenu" class="navMenu col-12 col-lg-9 d-lg-flex justify-content-lg-between text-lg-center align-items-lg-center">
+            <li id="nav-home"><a href="<?php echo url_generate(['route' => 'home']); ?>" class=" navText">Home</a></li>
+            <li id="nav-quemSomos"><a href="<?php echo url_generate(['route' => 'quemSomos']); ?>" class="navText">Quem Somos</a></li>
+            <li id="nav-projetos"><a href="<?php echo url_generate(['route' => 'projetos']); ?>" class="navText">Projetos</a></li>
+            <li id="nav-noticiasEventos">
+              <a href="<?php echo url_generate(['route' => 'noticiasEventos']); ?>" class="navText">Notícias e Eventos</a>
             </li>
-            <li><a href="contatos.html" class="navText">Contatos</a></li>
+            <li  id="nav-contatos"><a href="<?php echo url_generate(['route' => 'contatos']); ?>" class="navText">Contatos</a></li>
           </ul>
         </div>
       </nav>
@@ -46,9 +45,26 @@
     <!-- nav -->
 
     <!-- banner -->
-
-    <section class="container-fluid banner bannerNoticias d-flex justify-content-center align-items-center">
-      <h1>Notícias e Eventos</h1>
+    <section class="container-fluid banner banner-<?php if($_GET['route'] == 'noticia'){ echo 'noticiasEventos';}else{echo $_GET['route'];} ?> d-flex justify-content-center align-items-center">
+      <h1>
+        <?php
+        if (isset($_GET['route'])) {
+          if ($_GET['route'] === "quemSomos") {
+            echo "Quem Somos";
+          } elseif ($_GET['route'] === "projetos") {
+            echo "Projetos";
+          } elseif ($_GET['route'] === "noticiasEventos" || $_GET['route'] === "noticia") {
+            echo "Notícias e Eventos";
+          } elseif ($_GET['route'] === "contatos") {
+            echo "Contatos";
+          } else {
+            echo "Página Desconhecida"; // Texto padrão se a rota não corresponder a nenhuma das opções
+          }
+        } else {
+          echo "Página Desconhecida"; // Texto padrão se a rota não estiver definida
+        }
+        ?>
+      </h1>
     </section>
 
     <!-- banner -->

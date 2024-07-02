@@ -178,6 +178,10 @@
     height: 215px;
     margin-bottom: 35px ;
   }
+  .textoLivre img{
+    width: 100%;
+     height: auto;
+   }
 }
 @media screen and (max-width: 1300px){
   .textoCarrossel .texto {

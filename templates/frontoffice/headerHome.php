@@ -29,13 +29,13 @@
           </div>
           <ul id="navMenu"
             class="navMenu col-12 col-lg-9 d-lg-flex justify-content-lg-between text-lg-center align-items-lg-center">
-            <li class="ativo"><a href="home.html" class="ativo navText">Home</a></li>
-            <li><a href="quemSomos.html" class="navText">Quem Somos</a></li>
-            <li><a href="projetos.html" class="navText">Projetos</a></li>
+            <li class="ativo"><a href="<?php echo url_generate(['route' => 'home']); ?>" class="ativo navText">Home</a></li>
+            <li><a href="<?php echo url_generate(['route' => 'quemSomos']); ?>" class="navText">Quem Somos</a></li>
+            <li><a href="<?php echo url_generate(['route' => 'projetos']); ?>" class="navText">Projetos</a></li>
             <li>
-              <a href="noticiasEventos.html" class="navText">Notícias e Eventos</a>
+              <a href="<?php echo url_generate(['route' => 'noticiasEventos']); ?>" class="navText">Notícias e Eventos</a>
             </li>
-            <li><a href="contatos.html" class="navText">Contatos</a></li>
+            <li><a href="<?php echo url_generate(['route' => 'contatos']); ?>" class="navText">Contatos</a></li>
           </ul>
         </div>
       </nav>

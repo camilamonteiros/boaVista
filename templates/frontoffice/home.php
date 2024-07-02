@@ -1,5 +1,6 @@
 <?php
 require_once "headerHome.php";
+require_once "../controllers/noticia.php";
 ?>
 <main class="container">
   <section class="row quemSomos-home">
@@ -62,45 +63,21 @@ require_once "headerHome.php";
       <div class="linhaTitulo"></div>
     </div>
     <div class="cards-destaque d-flex flex-wrap justify-content-between">
+    <?php foreach ($news as $noticia) { ?>
       <div class="card-noticia  col-12 col-md-4">
         <div class="img-card-noticia">
-          <img src="img/noticias/noticia1.png" alt="">
+          <img src="<?php echo ($noticia['img_capa']) ?>" alt="">
         </div>
         <div class="texto-card-noticia d-flex flex-column">
-          <h3>Notícia 1</h3>
-          <span class="data-noticia">07/05/2024</span>
+          <h3><?php echo ($noticia['titulo']) ?></h3>
+          <span class="data-noticia"><?php echo (formatarData($noticia['data_noticia'])) ?></span>
           <div class="linhaCard"></div>
-          <div class="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in
-            hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur.</div>
-          <a class="align-self-center" href="#"><button class="botaoVerde">+ Ver Mais</button></a>
+          <div id="texto" class="texto"><?php echo ($noticia['descricao_noticia']) ?></div>
+          <a class="align-self-center" href="<?php echo url_generate(['route' => 'noticia', 'id' => $noticia['id_noticia']],true); ?>"><button class="botaoVerde">+ Ver Mais</button></a>
         </div>
       </div>
-      <div class="card-noticia  col-12 col-md-4">
-        <div class="img-card-noticia">
-          <img src="img/noticias/noticia1.png" alt="">
-        </div>
-        <div class="texto-card-noticia d-flex flex-column">
-          <h3>Notícia 1</h3>
-          <span class="data-noticia">07/05/2024</span>
-          <div class="linhaCard"></div>
-          <div class="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in
-            hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur.</div>
-          <a class="align-self-center" href="#"><button class="botaoVerde">+ Ver Mais</button></a>
-        </div>
-      </div>
-      <div class="card-noticia  col-12 col-md-4">
-        <div class="img-card-noticia">
-          <img src="img/noticias/noticia1.png" alt="">
-        </div>
-        <div class="texto-card-noticia d-flex flex-column">
-          <h3>Notícia 1</h3>
-          <span class="data-noticia">07/05/2024</span>
-          <div class="linhaCard"></div>
-          <div class="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in
-            hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur.</div>
-          <a class="align-self-center" href="#"><button class="botaoVerde">+ Ver Mais</button></a>
-        </div>
-      </div>
+      <?php } ?>
+
     </div>
   </section>
 </main>

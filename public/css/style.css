@@ -59,7 +59,7 @@ h6 {
   text-decoration: none;
   text-transform: uppercase;
 }
-.navText:hover {
+.navText:hover, .navAtivo a {
   font-family: var(--textoBold);
 }
 
@@ -78,7 +78,7 @@ h6 {
   position: relative;
   list-style: none;
 }
-.navMenu li::before {
+.navMenu li::before ,.navAtivo::before{
   content: "";
   position: absolute;
   top: -60px;
@@ -90,8 +90,9 @@ h6 {
   transition: height 0.3s;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
 }
-.navMenu li:hover::before {
-  height: 50px;
+
+.navMenu li:hover::before, .navAtivo::before{
+  height: 50px !important;
 }
 .nav-footer li {
   text-align: center;
@@ -283,17 +284,17 @@ footer {
   box-shadow: 0px 6px 9px rgb(0 0 0 / 46%);
   margin-bottom: 100px;
 }
-.bannerQuemSomos {
+.banner-quemSomos {
   background: linear-gradient(rgba(4, 41, 64, 0.8), rgba(4, 41, 64, 0.8)),
-    url("../images/banner/quemSomos.png");
+    url("../img/banner/quemSomos.png");
 }
-.bannerProjetos {
+.banner-projetos {
   background: linear-gradient(rgba(4, 41, 64, 0.8), rgba(4, 41, 64, 0.8)),
-    url("../images/banner/projetos.png");
+    url("../img/banner/projetos.png");
 }
-.bannerNoticias{
+.banner-noticiasEventos{
   background: linear-gradient(rgba(4, 41, 64, 0.8), rgba(4, 41, 64, 0.8)),
-  url("../images/banner/noticiasEventos.png");
+  url("../img/banner/noticiasEventos.png");
   background-position: center;
   background-size: cover;
 }
@@ -311,9 +312,13 @@ footer {
 .noQueAcreditamos {
   margin-bottom: 125px;
 }
-.quemSomos {
+.quemSomos, .textoLivre {
   margin-bottom: 90px;
 }
+.textoLivre p{
+  color: var(--azulEscuro);
+}
+
 
 /* Tags */
 .tagVendas {

@@ -37,6 +37,7 @@ if (!is_authenticated()) {
         </div>
       </form>
     </div>
+    <!--File Manager Modal-->
     <div class="modal fade" id="fileManagerModal" tabindex="-1" role="dialog" aria-labelledby="fileManagerModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -52,6 +53,7 @@ if (!is_authenticated()) {
         </div>
       </div>
     </div>
+    <!--File Manager Modal-->
   </main>
   <?php
   require_once "../templates/backoffice/footer.php";

@@ -1877,11 +1877,11 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
                     <?php endif; ?>
                     <th><?php echo lng('Name') ?></th>
                     <th><?php echo lng('Size') ?></th>
-                    <!-- <th><?php //echo lng('Modified') ?></th> -->
-                    <!-- <?php //if (!FM_IS_WIN && !$hide_Cols) : ?>
-                        <th><?php //echo lng('Perms') ?></th>
-                        <th><?php //echo lng('Owner') ?></th>
-                    <?php //endif; ?> -->
+                    <th><?php echo lng('Modified') ?></th>
+                    <?php if (!FM_IS_WIN && !$hide_Cols) : ?>
+                        <th><?php echo lng('Perms') ?></th>
+                        <th><?php echo lng('Owner') ?></th>
+                    <?php endif; ?>
                     <th><?php echo lng('Actions') ?></th>
                 </tr>
             </thead>
@@ -1894,12 +1894,12 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
                         <a href="?p=<?php echo urlencode($parent) ?>"><i class="fa fa-chevron-circle-left go-back"></i> ..</a>
                     </td>
                     <td class="border-0" data-order></td>
-                    <!-- <td class="border-0" data-order></td> -->
-                    <!-- <td class="border-0"></td> -->
-                    <!-- <?php //if (!FM_IS_WIN && !$hide_Cols) : ?>
+                    <td class="border-0" data-order></td>
+                    <td class="border-0"></td>
+                    <?php if (!FM_IS_WIN && !$hide_Cols) : ?>
                         <td class="border-0"></td>
                         <td class="border-0"></td>
-                    <?php //endif; ?> -->
+                    <?php endif; ?>
                 </tr>
             <?php endif; ?>
 
@@ -1946,17 +1946,17 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
                     <td data-order="a-<?php echo str_pad($filesize_raw, 18, "0", STR_PAD_LEFT); ?>">
                         <?php echo $filesize; ?>
                     </td>
-                    <!-- <td data-order="a-<?php //echo $date_sorting; ?>"><?php //echo $modif ?></td> -->
-                    <!-- <?php //if (!FM_IS_WIN && !$hide_Cols) : ?>
+                    <td data-order="a-<?php echo $date_sorting; ?>"><?php echo $modif ?></td>
+                    <?php if (!FM_IS_WIN && !$hide_Cols) : ?>
                         <td>
-                            <?php //if (!FM_READONLY) : ?>
-                                <a title="Change Permissions" href="?p=<?php //echo urlencode(FM_PATH) ?>&amp;chmod=<?php //echo urlencode($f) ?>"><?php //echo $perms ?></a>
-                            <?php //else : ?>
-                                <?php //echo $perms ?>
-                            <?php //endif; ?>
+                            <?php if (!FM_READONLY) : ?>
+                                <a title="Change Permissions" href="?p=<?php echo urlencode(FM_PATH) ?>&amp;chmod=<?php echo urlencode($f) ?>"><?php echo $perms ?></a>
+                            <?php else : ?>
+                                <?php echo $perms ?>
+                            <?php endif; ?>
                         </td>
-                        <td><?php //echo $owner['name'] . ':' . $group['name'] ?></td>
-                    <?php //endif; ?> -->
+                        <td><?php echo $owner['name'] . ':' . $group['name'] ?></td>
+                    <?php endif; ?>
                     <td class="inline-actions">
                         <?php if (!FM_READONLY) : ?>
                             <a title="<?php echo lng('Delete') ?>" href="?p=<?php echo urlencode(FM_PATH) ?>&amp;del=<?php echo urlencode($f) ?>" onclick="confirmDailog(event, '1028','<?php echo lng('Delete') . ' ' . lng('Folder'); ?>','<?php echo urlencode($f) ?>', this.href);">
@@ -2028,17 +2028,17 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
                     <td data-order="b-<?php echo str_pad($filesize_raw, 18, "0", STR_PAD_LEFT); ?>"><span title="<?php printf('%s bytes', $filesize_raw) ?>">
                             <?php echo $filesize; ?>
                         </span></td>
-                    <!-- <td data-order="b-<?php //echo $date_sorting; ?>"><?php //echo $modif ?></td> -->
-                    <!-- <?php //if (!FM_IS_WIN && !$hide_Cols) : ?>
+                    <td data-order="b-<?php echo $date_sorting; ?>"><?php echo $modif ?></td>
+                    <?php if (!FM_IS_WIN && !$hide_Cols) : ?>
                         <td>
-                            <?php //if (!FM_READONLY) : ?>
-                                <a title="Change Permissions" href="?p=<?php //echo urlencode(FM_PATH) ?>&amp;chmod=<?php //echo urlencode($f) ?>"><?php //echo $perms ?></a>
-                            <?php //else : ?>
-                                <?php //echo $perms ?>
-                            <?php //endif; ?>
+                            <?php if (!FM_READONLY) : ?>
+                                <a title="Change Permissions" href="?p=<?php echo urlencode(FM_PATH) ?>&amp;chmod=<?php echo urlencode($f) ?>"><?php echo $perms ?></a>
+                            <?php else : ?>
+                                <?php echo $perms ?>
+                            <?php endif; ?>
                         </td>
-                        <td><?php //echo fm_enc($owner['name'] . ':' . $group['name']) ?></td>
-                    <?php //endif; ?> -->
+                        <td><?php echo fm_enc($owner['name'] . ':' . $group['name']) ?></td>
+                    <?php endif; ?>
                     <td class="inline-actions">
                         <!-- Botão Selecionar -->
                         <button class="botaoSelecionar" type="button" onclick="selectFile('<?php echo fm_enc(FM_ROOT_URL . (FM_PATH != '' ? '/' . FM_PATH : '') . '/' . $f) ?>')"><i class="fa fa-check-square-o"></i></button>

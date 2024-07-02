@@ -16,6 +16,7 @@ require_once '../functions/url.php';
 require_once '../functions/menssage.php';
 require_once '../functions/auth.php';
 require_once '../functions/caracther.php';
+require_once '../functions/format.php';
 
 if (empty($_GET['route'])) {
     $page = 'home';
