@@ -83,7 +83,7 @@ require_once "../controllers/noticia.php";
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const counters = document.querySelectorAll('.counter-value');
-    const duration = 10000; // 20 segundos em milissegundos
+    const duration = 10000;
 
     function isElementInViewport(el) {
       let rect = el.getBoundingClientRect();
