@@ -1,3 +1,7 @@
+<?php
+require_once "../controllers/projeto.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,12 +14,16 @@
   <link rel="stylesheet" href="css/variables.css?v=1.0" />
   <link rel="stylesheet" href="css/style.css?v=1.0" />
   <link rel="stylesheet" href="css/mobile.css?v=1.0" />
+  <style>
+    .bannerProjeto {
+      background-image: linear-gradient(rgba(4, 41, 64, 0.8), rgba(4, 41, 64, 0.8)), url("<?php echo ($projeto['banner_projeto']) ?>")
+    }
+  </style>
 </head>
 
 <body>
   <header>
     <!-- nav -->
-
     <div class="navBar d-flex align-items-center">
       <nav class="container-lg">
         <div class="row d-flex align-items-center">
@@ -41,36 +49,56 @@
         </div>
       </nav>
     </div>
-
-    <!-- nav -->
-
     <!-- banner -->
-    <section class="container-fluid banner banner-<?php if ($_GET['route'] == 'noticia') {
-                                                    echo 'noticiasEventos';
-                                                  } else {
-                                                    echo $_GET['route'];
-                                                  } ?> d-flex justify-content-center align-items-center">
+    <section class="container-fluid banner bannerProjeto d-flex justify-content-center align-items-center">
       <h1>
-        <?php
-        if (isset($_GET['route'])) {
-          if ($_GET['route'] === "quemSomos") {
-            echo "Quem Somos";
-          } elseif ($_GET['route'] === "projetos") {
-            echo "Projetos";
-          } elseif ($_GET['route'] === "noticiasEventos" || $_GET['route'] === "noticia") {
-            echo "Notícias e Eventos";
-          } elseif ($_GET['route'] === "contatos") {
-            echo "Contatos";
-          } else {
-            echo "Página Desconhecida"; // Texto padrão se a rota não corresponder a nenhuma das opções
-          }
-        } else {
-          echo "Página Desconhecida"; // Texto padrão se a rota não estiver definida
-        }
-        ?>
+        <?php echo ($projeto['nome_projeto']) ?>
       </h1>
     </section>
-
-    <!-- banner -->
-
   </header>
+  <main class="container">
+    <section class="row">
+      <div class="col-12 col-lg-7">
+        <h2>Descrição</h2>
+        <div class="linhaTitulo"></div>
+      </div>
+      <div class="texto col-12 quemSomos"><?php echo ($projeto['descricao_projeto']); ?></div>
+      <div class="gallery">
+        <img id="gallery-img" src="" alt="Imagem da galeria">
+        <div class="buttons">
+          <button id="prev-btn"><i class="bi bi-chevron-left"></i></button>
+          <button id="next-btn"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="modal">
+        <img src="" alt="Imagem em destaque">
+        <div class="modal-buttons">
+          <button id="modal-prev-btn"><i class="bi bi-chevron-left"></i></button>
+          <button id="modal-next-btn"><i class="bi bi-chevron-right"></i></button>
+        </div>
+        <button id="close-modal"><i class="bi bi-x-lg"></i></button>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-12 col-lg-7">
+        <h2>Características</h2>
+        <div class="linhaTitulo"></div>
+      </div>
+      <div class="texto col-12 quemSomos d-flex flex-wrap">
+  <?php 
+  foreach ($caracteristicas as $caracteristica) {?>
+    <div class="col-md-4 col-12 caracProjeto p-3">
+    <?php echo ($caracteristica);?>
+    </div>
+ <?php }
+  ?>
+</div>
+    </section>
+
+  </main>
+  <script>
+    const images = <?php echo $imagensJson; ?>;
+  </script>
+  <?php
+  require_once "footer.php"
+  ?>

@@ -12,7 +12,7 @@ if (!is_authenticated()) {
 
     <div class="row w-100 justify-content-center align-items-center">
       <div class="col-12 col-md-8 my-5">
-        <a href="<?php echo url_generate(['route' => 'tfm']); ?>"><button class="btnAddImage">Gerenciador de Arquivos</button></a>
+        <a target="_blank" href="<?php echo url_generate(['route' => 'tfm']); ?>"><button class="btnAddImage">Gerenciador de Arquivos</button></a>
       </div>
       <form class="formContatos d-flex flex-column justify-content-center align-items-center col-12 col-md-8" method="POST" action="<?php echo url_generate(['route' => 'controllers/noticia_atualizar', 'id' => $_GET['id']],true); ?>">
         <div class="formItens w-100">
@@ -22,9 +22,9 @@ if (!is_authenticated()) {
         <div class="form-group formItens formImg w-100">
           <label for="img_capa">Imagem de Capa</label>
           <div class="input-group">
-            <input type="text" class="form-control" id="img_capa" name="img_capa" required readonly value="<?php echo ($news['img_capa']) ?>">
+            <input type="text" class="form-control" id="img_capa" name="img_capa" required readonly value="<?php echo htmlspecialchars($news['img_capa'], ENT_QUOTES, 'UTF-8'); ?>">
             <div class="input-group-append">
-              <button type="button" class="btnAddImage" data-toggle="modal" data-target="#fileManagerModal"><i class="bi bi-image"></i></button>
+              <button type="button" class="btnAddImage" data-toggle="modal" data-target="#fileManagerModal" onclick="setCurrentInput('img_capa')"><i class="bi bi-image"></i></button>
             </div>
           </div>
         </div>

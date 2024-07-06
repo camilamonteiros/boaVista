@@ -15,10 +15,18 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
   <script>
-    function selectFile(fileUrl) {
-      document.getElementById('img_capa').value = fileUrl;
-      $('#fileManagerModal').modal('hide');
-    }
+    var currentInput = null;
+
+function setCurrentInput(inputId) {
+  currentInput = document.getElementById(inputId);
+}
+
+function selectFile(fileUrl) {
+  if (currentInput) {
+    currentInput.value = fileUrl;
+    $('#fileManagerModal').modal('hide');
+  }
+}
   </script>
 </body>
 

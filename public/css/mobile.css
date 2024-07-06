@@ -126,6 +126,7 @@
   .textoCarrossel .texto {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 20px;
@@ -182,11 +183,15 @@
     width: 100%;
      height: auto;
    }
+   #prev-btn i, #next-btn i{
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 1300px){
   .textoCarrossel .texto {
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 20px;

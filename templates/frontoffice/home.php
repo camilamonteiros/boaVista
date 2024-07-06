@@ -22,7 +22,7 @@ require_once "../controllers/noticia.php";
         <div class="col-6 d-flex align-items-center flex-column mb-5">
           <div class="counter">
             <h4>+</h4>
-            <h4 class="counter-value">40</h4>
+            <h4 class="counter-value" data-final="40">0</h4>
             <span class="slogan">anos</span>
           </div>
           <div class="slogan">de trabalho</div>
@@ -30,7 +30,7 @@ require_once "../controllers/noticia.php";
         <div class="col-6 d-flex align-items-center flex-column mb-5">
           <div class="counter">
             <h4>+</h4>
-            <h4 class="counter-value">10000</h4>
+            <h4 class="counter-value" data-final="510000">0</h4>
             <span class="slogan">m<sup>2</sup></span>
           </div>
           <div class="slogan">construídos</div>
@@ -38,7 +38,7 @@ require_once "../controllers/noticia.php";
         <div class="col-6 d-flex align-items-center flex-column">
           <div class="counter">
             <h4>+</h4>
-            <h4 class="counter-value">100</h4>
+            <h4 class="counter-value" data-final="5200">0</h4>
             <span class="slogan">obras</span>
           </div>
           <div class="slogan">entregues</div>
@@ -46,7 +46,7 @@ require_once "../controllers/noticia.php";
         <div class="col-6 d-flex align-items-center flex-column">
           <div class="counter">
             <h4>+</h4>
-            <h4 class="counter-value">1000</h4>
+            <h4 class="counter-value" data-final="25000">0</h4>
             <span class="slogan">sonhos</span>
           </div>
           <div class="slogan">realizados</div>
@@ -63,24 +63,71 @@ require_once "../controllers/noticia.php";
       <div class="linhaTitulo"></div>
     </div>
     <div class="cards-destaque d-flex flex-wrap justify-content-between">
-    <?php foreach ($news as $noticia) { ?>
-      <div class="card-noticia  col-12 col-md-4">
-        <div class="img-card-noticia">
-          <img src="<?php echo ($noticia['img_capa']) ?>" alt="">
+      <?php foreach ($news as $noticia) { ?>
+        <div class="card-noticia  col-12 col-md-4">
+          <div class="img-card-noticia">
+            <img src="<?php echo ($noticia['img_capa']) ?>" alt="">
+          </div>
+          <div class="texto-card-noticia d-flex flex-column">
+            <h3><?php echo ($noticia['titulo']) ?></h3>
+            <span class="data-noticia"><?php echo (formatarData($noticia['data_noticia'])) ?></span>
+            <div class="linhaCard"></div>
+            <div id="texto" class="texto"><?php echo ($noticia['descricao_noticia']) ?></div>
+            <a class="align-self-center" href="<?php echo url_generate(['route' => 'noticia', 'id' => $noticia['id_noticia']], true); ?>"><button class="botaoVerde">+ Ver Mais</button></a>
+          </div>
         </div>
-        <div class="texto-card-noticia d-flex flex-column">
-          <h3><?php echo ($noticia['titulo']) ?></h3>
-          <span class="data-noticia"><?php echo (formatarData($noticia['data_noticia'])) ?></span>
-          <div class="linhaCard"></div>
-          <div id="texto" class="texto"><?php echo ($noticia['descricao_noticia']) ?></div>
-          <a class="align-self-center" href="<?php echo url_generate(['route' => 'noticia', 'id' => $noticia['id_noticia']],true); ?>"><button class="botaoVerde">+ Ver Mais</button></a>
-        </div>
-      </div>
       <?php } ?>
-
     </div>
   </section>
 </main>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const counters = document.querySelectorAll('.counter-value');
+    const duration = 10000; // 20 segundos em milissegundos
+
+    function isElementInViewport(el) {
+      let rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    function startCounter(el, finalValue) {
+      const startTime = performance.now();
+      const endTime = startTime + duration;
+      const formatter = new Intl.NumberFormat('pt-BR');
+
+      function updateCounter(currentTime) {
+        if (currentTime >= endTime) {
+          el.textContent = formatter.format(finalValue);
+        } else {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const currentValue = Math.ceil(progress * finalValue);
+          el.textContent = formatter.format(currentValue);
+          requestAnimationFrame(updateCounter);
+        }
+      }
+      requestAnimationFrame(updateCounter);
+    }
+
+    function onScroll() {
+      counters.forEach(function(counter) {
+        if (isElementInViewport(counter) && !counter.started) {
+          counter.started = true;
+          const finalValue = parseInt(counter.getAttribute('data-final'), 10);
+          startCounter(counter, finalValue);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('load', onScroll); // Para verificar se o elemento já está visível ao carregar a página
+  });
+</script>
 <?php
 require_once "footerHome.php";
 ?>

@@ -174,7 +174,7 @@ select {
   cursor: pointer;
   font-family: var(--textoRegular);
   height: 45px;
-  background-image: url("/public/assets/icons/selectArrow.svg");
+  background-image: url("../assets/icons/selectArrow.svg");
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 1.5rem auto;
@@ -184,6 +184,33 @@ select {
   font-size: 20px;
   color: var(--azulEscuro);
   margin-bottom: 15px;
+}
+.mais i{
+  font-size: 35px;
+}
+.mais:hover{
+  opacity: 50%;
+}
+.formItens .maisAtualizar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px !important;
+  background-color: var(--azulEscuro);
+  color: var(--branco);
+  padding: 10px;
+  margin-bottom: 40px;
+  width: 40%;
+  border: none;
+  cursor: pointer;
+}
+.formItens .maisAtualizar:hover{
+  background-color: var(--branco);
+  color: var(--azulEscuro);
+  border: 2px solid var(--azulEscuro);
+}
+.maisAtualizar i{
+  font-size: 20px;
 }
 .copyright,
 .copyright a {
@@ -238,7 +265,12 @@ td:last-child {
   background-color: transparent;
   color: var(--azulEscuro);
 }
-
+main{
+  padding: 50px 0;
+}
+td img{
+  height: 50px;
+}
 @media screen and (max-width: 768px) {
   thead {
     display: none;
