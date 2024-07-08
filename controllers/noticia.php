@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     } else {
         $news = [];
     }
-}elseif(isset($_GET['route']) && $_GET['route'] === 'home'){
+}elseif(!isset($_GET['route']) || (isset($_GET['route']) && $_GET['route'] === 'home')){
     $query = 'SELECT * FROM noticias ORDER BY data_noticia ASC LIMIT 3;';
     $sql = $pdo->prepare($query);
 

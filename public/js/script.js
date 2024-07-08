@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const route = urlParams.get("route");
-  
   if (!route) {
     document.getElementById("nav-home").classList.add("navAtivo");
   } else {
@@ -33,10 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("nav-projetos").classList.add("navAtivo");
         break;
       case "noticiasEventos":
-        document.getElementById("nav-noticiasEventos").classList.add("navAtivo");
+        document
+          .getElementById("nav-noticiasEventos")
+          .classList.add("navAtivo");
         break;
       case "noticia":
-        document.getElementById("nav-noticiasEventos").classList.add("navAtivo");
+        document
+          .getElementById("nav-noticiasEventos")
+          .classList.add("navAtivo");
         break;
       case "contatos":
         document.getElementById("nav-contatos").classList.add("navAtivo");
@@ -47,8 +50,44 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
-
-
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const route = urlParams.get("route");
+  if (!route) {
+    document.getElementById("navFooter-home").classList.add("navFooterAtivo");
+  } else {
+    switch (route) {
+      case "home":
+        document.getElementById("navFooter-home").classList.add("navFooterAtivo");
+        break;
+      case "quemSomos":
+        document.getElementById("navFooter-quemSomos").classList.add("navFooterAtivo");
+        break;
+      case "projetos":
+        document.getElementById("navFooter-projetos").classList.add("navFooterAtivo");
+        break;
+      case "projeto":
+        document.getElementById("navFooter-projetos").classList.add("navFooterAtivo");
+        break;
+      case "noticiasEventos":
+        document
+          .getElementById("navFooter-noticiasEventos")
+          .classList.add("navFooterAtivo");
+        break;
+      case "noticia":
+        document
+          .getElementById("navFooter-noticiasEventos")
+          .classList.add("navFooterAtivo");
+        break;
+      case "contatos":
+        document.getElementById("navFooter-contatos").classList.add("navFooterAtivo");
+        break;
+      default:
+        document.getElementById("navFooter-home").classList.add("navFooterAtivo");
+        break;
+    }
+  }
+});
 if (images) {
   let currentIndex = 0;
   const galleryImg = document.getElementById("gallery-img");
@@ -110,5 +149,3 @@ if (images) {
     }
   });
 }
-
-

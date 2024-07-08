@@ -186,6 +186,9 @@
    #prev-btn i, #next-btn i{
     font-size: 20px;
   }
+  .card-noticia{
+    margin-bottom: 50px;
+  }
 }
 @media screen and (max-width: 1300px){
   .textoCarrossel .texto {

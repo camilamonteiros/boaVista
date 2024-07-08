@@ -59,7 +59,7 @@ h6 {
   text-decoration: none;
   text-transform: uppercase;
 }
-.navText:hover, .navAtivo a {
+.navText:hover, .navAtivo a, .navFooterAtivo {
   font-family: var(--textoBold);
 }
 
@@ -522,7 +522,12 @@ select {
   color: var(--branco) !important;
 }
 .counter {
-  font-size: 3em;
-  margin: 50px 0;
   text-align: center;
+}
+.textoQuemSomos .texto{
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
