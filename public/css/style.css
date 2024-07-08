@@ -375,7 +375,7 @@ footer {
 .socialMedia-contatos i:hover{
   opacity: 0.5;
 }
-.formItens, .privacidade{
+.formItens, .privacidade, .filtragemBox{
   font-family: var(--textoMedium);
   font-size: 24px;
   color: var(--azulEscuro);
@@ -388,16 +388,25 @@ footer {
   width: 20px;
   border: 2px solid var(--azulEscuro);
 }
-.formItens input, textarea{
+.formItens input, textarea, .filtragem{
   width: 100%;
   border: 2px solid var(--azulEscuro);
   height: 45px;
+  border-radius: 0;
 }
 .formItens input{
   margin-bottom: 35px;
 }
 .formItens textarea{
 height: 170px;
+}
+.filtragem input, .filtragem span, .filtragem select{
+  border: none;
+  background-color: transparent;
+  color: var(--azulEscuro) !important;
+  font-family: var(--textoRegular);
+  font-size: 20px;
+
 }
 .formItens input::placeholder,textarea, textarea::placeholder{
   padding: 15px;
@@ -406,7 +415,13 @@ height: 170px;
   color: var(--azulEscuro);
   height: 100%;
 }
-.formItens label{
+.filtragem input::placeholder{
+  font-family: var(--textoRegular);
+  font-size: 20px;
+  color: var(--azulEscuro);
+  height: 100%;
+}
+.formItens label, .filtragemBox label{
   margin-bottom: 15px;
 }
 .formColuna{
@@ -530,4 +545,7 @@ select {
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+.filterOptions{
+  margin-bottom: 55px;
 }
