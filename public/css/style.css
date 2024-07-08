@@ -549,3 +549,18 @@ select {
 .filterOptions{
   margin-bottom: 55px;
 }
+.page-link{
+  font-family: var(--textoMedium);
+  color: var(--azulEscuro);
+  margin: 60px 10px;
+  border-radius: 0;
+  border: 2px solid var(--azulEscuro);
+}
+.page-item:last-child .page-link, .page-item:first-child .page-link{
+  border-radius: 0;
+}
+.page-link:hover, .active>.page-link{
+  color: var(--branco);
+  background-color: var(--azulEscuro);
+  border: 2px solid var(--azulEscuro);
+}

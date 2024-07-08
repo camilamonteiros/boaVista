@@ -50,13 +50,28 @@ if (isset($_GET['route']) && isset($_GET['id']) && $_GET['route'] !== 'carrossel
   }
   $imagensJson = json_encode($imagens);
 }else {
-  $query = 'SELECT * FROM projetos;';
+  $perPage = 9; // Número de projetos por página
+  $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Página atual
+  $start = ($page - 1) * $perPage; // Offset para a query SQL
+  
+  $orderBy = isset($_GET['orderby']) ? $_GET['orderby'] : 'id_projeto'; // Coluna para ordenação
+  $orderDir = isset($_GET['orderdir']) ? $_GET['orderdir'] : 'ASC'; // Direção da ordenação
+  
+  $query = 'SELECT * FROM projetos ORDER BY ' . $orderBy . ' ' . $orderDir . ' LIMIT :start, :perpage';
   $sql = $pdo->prepare($query);
-
+  $sql->bindParam(':start', $start, PDO::PARAM_INT);
+  $sql->bindParam(':perpage', $perPage, PDO::PARAM_INT);
+  
   if ($sql->execute()) {
-    $projetos = $sql->fetchAll(PDO::FETCH_ASSOC);
+      $projetos = $sql->fetchAll(PDO::FETCH_ASSOC);
   } else {
-    $projetos = [];
+      $projetos = [];
   }
+  
+  // Obter o número total de projetos para a paginação
+  $totalQuery = 'SELECT COUNT(*) as total FROM projetos';
+  $totalSql = $pdo->prepare($totalQuery);
+  $totalSql->execute();
+  $total = $totalSql->fetch(PDO::FETCH_ASSOC)['total'];
 }
 ?>

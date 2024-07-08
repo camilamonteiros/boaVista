@@ -85,14 +85,21 @@ require_once "../controllers/projeto.php";
         <div class="linhaTitulo"></div>
       </div>
       <div class="texto col-12 quemSomos d-flex flex-wrap">
-  <?php 
-  foreach ($caracteristicas as $caracteristica) {?>
-    <div class="col-md-4 col-12 caracProjeto p-3">
-    <?php echo ($caracteristica);?>
+        <?php
+        foreach ($caracteristicas as $caracteristica) { ?>
+          <div class="col-md-4 col-12 caracProjeto p-3">
+            <?php echo ($caracteristica); ?>
+          </div>
+        <?php }
+        ?>
+      </div>
+      <div class="d-flex justify-content-md-end justify-content-center w-100">
+      <a href="<?php echo url_generate(['route' => 'projetos']); ?>">
+        <button class="botaoVerde mb-5">
+          <i class="bi bi-arrow-left"></i> Voltar para Projetos
+        </button>
+      </a>
     </div>
- <?php }
-  ?>
-</div>
     </section>
 
   </main>
