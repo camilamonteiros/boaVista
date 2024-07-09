@@ -64,7 +64,6 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="js/filtrarProjeto.js"></script>
 <script src="js/script.js"></script>
 </body>
 

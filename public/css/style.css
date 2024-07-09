@@ -564,3 +564,6 @@ select {
   background-color: var(--azulEscuro);
   border: 2px solid var(--azulEscuro);
 }
+.texto-card-noticia .texto p img {
+  display: none !important;
+}

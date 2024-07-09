@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
         $news = [];
     }
 }else{
-    $query = 'SELECT * FROM noticias ORDER BY data_noticia ASC;';
+    $query = 'SELECT * FROM noticias;';
     $sql = $pdo->prepare($query);
 
     if ($sql->execute()) {
@@ -26,4 +26,5 @@ if (isset($_GET['id'])) {
     } else {
         $news = [];
     }
+     json_encode($news);
 }

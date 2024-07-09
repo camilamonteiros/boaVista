@@ -71,18 +71,22 @@ require_once "../controllers/projeto.php";
     </div>
   </section>
   <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-      <?php
-      $totalPages = ceil($total / $perPage);
-      for ($i = 1; $i <= $totalPages; $i++) {
-        $active = $i == $page ? 'active' : '';
-        echo "<li class='page-item $active'><a class='page-link' href='?route=projetos&page=$i'>$i</a></li>";
-      }
-      ?>
-    </ul>
-  </nav>
+  <ul class="pagination justify-content-center">
+    <?php 
+    $totalPages = ceil($total / $perPage);
+    if ($page > 1): ?>
+      <li class="page-item"><a class="page-link" href="?route=projetos&page=<?php echo $page - 1; ?>">Anterior</a></li>
+    <?php endif; ?>
+    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+      <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link" href="?route=projetos&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+    <?php endfor; ?>
+    <?php if ($page < $totalPages): ?>
+      <li class="page-item"><a class="page-link" href="?route=projetos&page=<?php echo $page + 1; ?>">Próxima</a></li>
+    <?php endif; ?>
+  </ul>
+</nav>
 </main>
-
+<script src="js/filtrarProjeto.js"></script>
 <?php
 require_once "footer.php"
 ?>
