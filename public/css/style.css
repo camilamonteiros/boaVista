@@ -300,6 +300,12 @@ footer {
   background-position: center;
   background-size: cover;
 }
+.banner-contatos{
+  background: linear-gradient(rgba(4, 41, 64, 0.8), rgba(4, 41, 64, 0.8)),
+  url("../img/banner/contatos.png");
+  background-position: center;
+  background-size: cover;
+}
 /* Banner */
 
 .img-texto-right {

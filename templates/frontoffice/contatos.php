@@ -1,5 +1,6 @@
 <?php
-require_once "header.php"
+require_once "header.php";
+require_once "../controllers/contato.php";
 ?>
 <main class="container">
   <section class="row">
@@ -11,50 +12,48 @@ require_once "header.php"
       <div class="endereco-box d-flex">
         <i class="bi bi-geo-alt-fill"></i>
         <div class="endereco">
-          <p>Rua Taumaturgo de Azevedo, 3237</p>
-          <p>Ilhotas, Teresina - PI</p>
-          <p>64001-340</p>
+          <?php echo $contatos['endereco']; ?>
         </div>
       </div>
       <div class="endereco-box d-flex">
         <i class="bi bi-telephone-fill"></i>
         <div class="endereco">
-          <p>(86) 3221-8064</p>
+          <p><?php echo $contatos['telefone']; ?></p>
         </div>
       </div>
       <div class="socialMedia-contatos d-flex w-100">
-        <a href="#"><i class="bi bi-whatsapp"></i></a>
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="<?php echo $contatos['whatsapp']; ?>"><i class="bi bi-whatsapp"></i></a>
+        <a href="<?php echo $contatos['facebook']; ?>"><i class="bi bi-facebook"></i></a>
+        <a href="<?php echo $contatos['instagram']; ?>"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
-    <form class="formContatos col-12 col-md-6">
+    <form class="formContatos col-12 col-md-6" method="POST" action="<?php echo url_generate(['route' => 'controllers/clientes_criar']); ?>">
       <div class="formItens col-12">
         <label class="d-block" for="nome">*Nome:</label>
-        <input type="text" id="nome" placeholder="Digite aqui seu nome" name="nome">
+        <input required type="text" id="nome" placeholder="Digite aqui seu nome" name="nome">
       </div>
       <div class="formItens col-12">
         <label class="d-block" for="email">*E-mail:</label>
-        <input type="text" id="email" placeholder="Digite aqui seu email" name="email">
+        <input required type="text" id="email" placeholder="Digite aqui seu email" name="email">
       </div>
       <div class="col-12 d-flex justify-content-between flex-wrap">
         <div class="formItens col-12 col-md-6 formColuna">
           <label class="d-block" for="telefone">*Telefone:</label>
-          <input type="text" id="telefone" placeholder="Digite aqui seu telefone" name="telefone">
+          <input required type="number" id="telefone" placeholder="Digite aqui seu telefone" name="telefone">
         </div>
         <div class="formItens col-12 col-md-6">
           <label class="d-block" for="setor">*Desejo falar com:</label>
-          <select name="setor" id="setor">
+          <select required name="setor" id="setor">
             <option value="">Escolha o setor</option>
-            <option value="">Administrativo</option>
-            <option value="">Vendas</option>
-            <option value="">Engenharia</option>
+            <option value="Administrativo">Administrativo</option>
+            <option value="Vendas">Vendas</option>
+            <option value="Engenharia">Engenharia</option>
           </select>
         </div>
       </div>
       <div class="formItens col-12">
         <label class="d-block" for="assunto">*Assunto:</label>
-        <input type="text" id="assunto" placeholder="Digite aqui seu assunto" name="assunto">
+        <input required type="text" id="assunto" placeholder="Digite aqui seu assunto" name="assunto">
       </div>
       <div class="formItens col-12">
         <label class="d-block" for="mensagem">*Mensagem:</label>
@@ -64,9 +63,11 @@ require_once "header.php"
         *Campos obrigatórios
       </div>
       <div class="col-12 privacidade d-flex align-items-center">
-        <input type="checkbox" id="privacidade" name="privacidade" />
+        <input required type="checkbox" id="privacidade" name="privacidade" />
         <label for="privacidade">Estou de acordo com a Política de Privacidade</label>
       </div>
+      <div class="formItens w-100">
+        <button type="submit" class="botaoVerde my-5 w-100">Enviar</button>
       </div>
     </form>
   </section>

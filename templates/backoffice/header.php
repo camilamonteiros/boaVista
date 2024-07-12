@@ -52,7 +52,7 @@
             <li><a href="<?php echo url_generate(['area' => 'admin', 'route' => 'quemSomos']); ?>" class="navText">Quem Somos</a></li>
             <li><a href="<?php echo url_generate(['area' => 'admin', 'route' => 'projetos']); ?>" class="navText">Projetos</a></li>
             <li>
-              <a href="<?php echo url_generate(['area' => 'admin', 'route' => 'noticias']); ?>" class="navText">Notícias e Eventos</a>
+              <a href="<?php echo url_generate(['area' => 'admin', 'route' => 'noticias']); ?>" class="navText">Notícias</a>
             </li>
             <li><a href="<?php echo url_generate(['area' => 'admin', 'route' => 'contatos']); ?>" class="navText">Contatos</a></li>
             <li><a href="<?php echo url_generate(['area' => 'admin', 'route' => 'clientes']); ?>" class="navText">Clientes</a></li>
