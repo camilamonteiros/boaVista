@@ -189,6 +189,29 @@
   .card-noticia{
     margin-bottom: 50px;
   }
+  .whatsapp-button {
+    bottom: 20px;
+    right: 0px;
+    border-top-left-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: var(--textoMedium);
+    z-index: 10000;
+  }
+  
+  .whatsapp-icon {
+    font-size: 20px;
+  }
+
+  
+  .whatsapp-button:hover .whatsapp-text {
+    max-width: 200px;
+  }
 }
 @media screen and (max-width: 1300px){
   .textoCarrossel .texto {

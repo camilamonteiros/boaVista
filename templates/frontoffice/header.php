@@ -1,3 +1,6 @@
+<?php
+require_once "../controllers/contato.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +16,10 @@
 </head>
 
 <body>
+<a href="<?php echo $contatos['whatsapp']; ?>" class="whatsapp-button">
+    <i class="bi bi-whatsapp whatsapp-icon"></i> 
+    <span class="whatsapp-text">Fale conosco!</span>
+  </a>
   <header>
     <!-- nav -->
 
